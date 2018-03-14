@@ -1,0 +1,123 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="author" content="lotusfa">
+    <meta name="keywords" content="crib dragging,crib,dragging,crib dragging solver,crib dragging online,javascript,crib drag,many time pad,attack,one time pad,key reuse,OTP,cracking,one time pad key reuse attack,crib dragging online,crib dragging technique,crib dragging online,One-time_pad attack">
+
+    <link rel="icon" href="https://res.cloudinary.com/dcmnwc3ux/image/upload/v1493918347/%E8%9E%A2%E5%B9%95%E5%BF%AB%E7%85%A7_2017-05-05_%E4%B8%8A%E5%8D%881.09.00_fnw5k9.png">
+
+    <title>Simple Genetic Algorithm </title>
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+
+    <!-- Custom styles for this template -->
+    <link href="https://v4-alpha.getbootstrap.com/examples/sticky-footer/sticky-footer.css" rel="stylesheet">
+
+    <script src="./human.js"></script>
+    <script src="./humans.js"></script>
+    
+  </head>
+
+  <body>
+
+    <!-- Begin page content -->
+    <div class="container">
+
+      
+
+      <div id="initiator" >
+        <h1>Simple Genetic Algorithm</h1>
+        <div class="form-group">
+          <label for="population">Population:</label>
+          <input type="text" class="form-control" id="population">
+        </div>
+
+        <div class="form-group">
+          <label for="mutation_rate">Mutation Rate:</label>
+          <input type="text" class="form-control" id="mutation_rate">
+        </div>
+
+        <div class="form-group">
+          <label for="crossover_rate">Crossover Rate:</label>
+          <input type="text" class="form-control" id="crossover_rate">
+        </div>
+
+        <div class="form-group">
+          <label for="comment">Test Case:</label>
+          <textarea class="form-control" rows="5" id="test_case"></textarea>
+        </div>
+        <button type="button" class="btn btn-primary active" onclick="run_simulation();">Run Simulation</button>
+
+      </div>
+
+      <div id="simulator" style="font-size: 10px;" >
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col"><small>Population</small></th>
+              <th scope="col"><small>Mutation Rate</small></th>
+              <th scope="col"><small>Crossover Rate</small></th>
+              <th scope="col"><small>Top Score</small></th>
+              <th scope="col"><small>#Generation</small></th>
+              <th scope="col">
+                <input type="text" id="auto_time" value="500" size="4" >ms
+              </th>
+              <th scope="col"><button type="button" class="btn btn-danger active" onclick="stop_simulation();" style="font-size: 10px;">Stop</button></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td id="p_tag"></td>
+              <td id="m_tag"></td>
+              <td id="cr_tag"></td>
+              <td id="so_tag"></td>
+              <td id="gen_tag"></td>
+              <td >
+                <button type="button" class="btn btn-primary active" onclick="auto_train ();" id="auto_button" style="font-size: 10px;">Auto</button>
+              </td>
+              <td >
+                <button type="button" class="btn btn-primary active" onclick="button_click ();" id="super_button" style="font-size: 10px;">Sort</button>
+              </td>
+            </tr>
+          </tbody>
+
+        </table>
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">ID</th>
+              <th scope="col">Score</th>
+              <th scope="col">DNA</th>
+              <th scope="col">p2s</th>
+            </tr>
+          </thead>
+          <tbody id="result">
+          </tbody>
+        </table>
+      </div>
+      
+    </div>
+
+    <footer class="footer">
+      <div class="container">
+        <span class="text-muted">Power By: LOTUS FA, <a href="https://lotusfa.com/">lotusfa.com</a></span>
+      </div>
+    </footer>
+    <script src="./main.js"></script>
+    <!--Google Analysis -->
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-80492067-1', 'auto');
+      ga('send', 'pageview');
+
+    </script>
+  </body>
+</html>
