@@ -4,6 +4,7 @@ class Human {
 		this.DNA = [];
 		this.p_to_s = 0;
 		this.score = 0;
+		this.num_of_DNA = test_case[0].length - 1;
 		let self = this;
 		this.random(()=>{
 			self.test(() => {
@@ -14,9 +15,9 @@ class Human {
 
 	random (callback) {
 		this.p_to_s = Math.round(Math.random() * 1000)/ 100;
-		for (let i = 0; i < 9; i++) {
+		for (let i = 0; i < this.num_of_DNA ; i++) {
 			this.DNA[i] = Math.round(Math.random() * 100) / 100;
-			if (i == 8 ) callback();
+			if (i == this.num_of_DNA - 1 ) callback();
 		}
 	}
 
@@ -34,7 +35,6 @@ class Human {
 		}
 	}
 
-
 	crossover (DNA1,DNA2,p2s1,p2s2) {
 		let self = this;
 		cross(DNA1,DNA2,p2s1,p2s2,()=>{
@@ -44,14 +44,14 @@ class Human {
 		});
 		
 		function cross (DNA1,DNA2,p2s1,p2s2,callback){
-			for (let i = 0; i < 9; i++) {
+			for (let i = 0; i < self.num_of_DNA ; i++) {
 				if (i % 2) {
 					self.DNA[i] = DNA1[i];
 				}else{
 					self.DNA[i] = DNA2[i];
 				}
 				self.p_to_s =  (Math.random() > 0.5 )? p2s1:p2s2;
-				if (i == 8 ) callback();
+				if (i == self.num_of_DNA - 1 ) callback();
 			}
 		}
 	}
@@ -75,11 +75,16 @@ class Human {
 	}
 
 	test_one_case (tCase,callback) {
-		let sum = 0;
-		for (let i = 0; i < 9; i++) {
+		let sum = 0; let string = "";
+		for (let i = 0; i < this.num_of_DNA ; i++) {
 			sum += this.DNA[i]*tCase[i];
-			if (i == 8) {
-				if( (sum > this.p_to_s ) == tCase[9] ){
+			// string += ("+ (" + this.DNA[i] + "*" +  tCase[i] + ") " );
+			if (i == this.num_of_DNA - 1 ) {
+
+				// string += ( "= " + sum + " > " + this.p_to_s + (sum > this.p_to_s) + tCase[this.num_of_DNA] );
+				// console.log(string);
+				
+				if( (sum > this.p_to_s ) == tCase[this.num_of_DNA] ){
 					callback(1);
 				}else {
 					callback(0);

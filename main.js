@@ -59,6 +59,11 @@ function run_simulation () {
 
 function stop_simulation () {
   initiator_mode ();
+  if (auto == 1) {
+      auto = 0;
+      clearInterval(auto_timer);
+      document.getElementById("auto_button").innerHTML = "Auto";
+    }
 }
 
 function initiator_mode () {
