@@ -78,11 +78,7 @@ class Human {
 		let sum = 0; let string = "";
 		for (let i = 0; i < this.num_of_DNA ; i++) {
 			sum += this.DNA[i]*tCase[i];
-			// string += ("+ (" + this.DNA[i] + "*" +  tCase[i] + ") " );
 			if (i == this.num_of_DNA - 1 ) {
-
-				// string += ( "= " + sum + " > " + this.p_to_s + (sum > this.p_to_s) + tCase[this.num_of_DNA] );
-				// console.log(string);
 				
 				if( (sum > this.p_to_s ) == tCase[this.num_of_DNA] ){
 					callback(1);
